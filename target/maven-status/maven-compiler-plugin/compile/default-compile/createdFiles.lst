@@ -1,0 +1,4 @@
+com\example\services\DemoService.class
+com\example\config\AppConfig.class
+com\example\App.class
+com\example\controller\DemoController.class
