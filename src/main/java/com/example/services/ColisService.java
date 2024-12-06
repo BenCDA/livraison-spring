@@ -15,7 +15,6 @@ public class ColisService {
     @Autowired
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-    // Récupérer tous les colis
     public List<Colis> getAllColis() {
         String sql = "SELECT * FROM Colis";
         return namedParameterJdbcTemplate.query(sql, new RowMapper<Colis>() {
@@ -33,7 +32,6 @@ public class ColisService {
         });
     }
 
-    // Récupérer un colis par son ID
     public Colis getColisById(int id) {
         String sql = "SELECT * FROM Colis WHERE id = :id";
         Map<String, Object> params = new HashMap<>();
@@ -56,7 +54,6 @@ public class ColisService {
         return colisList.isEmpty() ? null : colisList.get(0);
     }
 
-    // Créer un colis
     public Colis createColis(Colis colis) {
         String sql = "INSERT INTO Colis (poids, dimensions, contenu, statut, id_livraison) " +
                      "VALUES (:poids, :dimensions, :contenu, :statut, :idLivraison)";
@@ -68,10 +65,9 @@ public class ColisService {
         params.put("statut", colis.getStatut());
         params.put("idLivraison", colis.getId_livraison());
     
-        // Exécution de la requête
         namedParameterJdbcTemplate.update(sql, params);
     
-        // Récupérer l'ID généré automatiquement
+        
         String getLastInsertIdSql = "SELECT LAST_INSERT_ID()";
         Integer generatedId = namedParameterJdbcTemplate.queryForObject(getLastInsertIdSql, new HashMap<>(), Integer.class);
         colis.setId(generatedId);
@@ -79,7 +75,6 @@ public class ColisService {
         return colis;
     }
 
-    // Mettre à jour un colis
     public Colis updateColis(int id, Colis colisMiseAJour) {
         String sql = "UPDATE Colis SET poids = :poids, dimensions = :dimensions, contenu = :contenu, " +
                      "statut = :statut, id_livraison = :idLivraison WHERE id = :id";
@@ -97,7 +92,7 @@ public class ColisService {
         return getColisById(id);
     }
 
-    // Supprimer un colis
+    
     public boolean deleteColis(int id) {
         String sql = "DELETE FROM Colis WHERE id = :id";
         

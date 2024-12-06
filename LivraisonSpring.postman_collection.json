@@ -1,0 +1,267 @@
+{
+	"info": {
+		"_postman_id": "5446498e-8d7b-4508-bb73-cf6dffbe0e04",
+		"name": "LivraisonSpring",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28619518"
+	},
+	"item": [
+		{
+			"name": "POST Livraison",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"adresseDepart\": \"25 rue de blabla\",\n    \"adresseDestination\": \"zzzzz Test\",\n    \"detailsColis\": \"Colis suspect\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/livraison/livraisons",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"livraison",
+						"livraisons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Livraisons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/livraison/livraisons",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"livraison",
+						"livraisons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Utilisateur",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nom\": \"Ben\",\n  \"email\": \"aaaa@example.com\",\n  \"motDePasse\": \"password123\",\n  \"role\": \"client\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/livraison/utilisateur/creer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"livraison",
+						"utilisateur",
+						"creer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Utilisateur",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/livraison/utilisateur/tous",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"livraison",
+						"utilisateur",
+						"tous"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE USER",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nom\": \"Nouveau Nom\",\n    \"email\": \"nouveau.email@example.com\",\n    \"mot_de_passe\": \"nouveauMotDePasse\",\n    \"role\": \"client\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/livraison/utilisateur/supprimer/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"livraison",
+						"utilisateur",
+						"supprimer",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Utilisateur",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nom\": \"eee\",\n  \"prenom\": \"put\",\n  \"email\": \"jean.put@example.com\",\n  \"motDePasse\": \"nouveauMotDePasse123\",\n  \"role\": \"USER\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/livraison/utilisateur/mettre-a-jour/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"livraison",
+						"utilisateur",
+						"mettre-a-jour",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Colis",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \n    \"poids\": 5.0,\n    \"dimensions\": \"30x20x15 cm\",\n    \"contenu\": \"Vêtements\",\n    \"statut\": \"en_attente\",\n    \"id_livraison\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/livraison/colis/tous",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"livraison",
+						"colis",
+						"tous"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Colis",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"poids\": 5.0,\n    \"dimensions\": \"30x20x10\",\n    \"contenu\": \"Vêtements\",\n    \"statut\": \"En attentennn\",\n    \"idLivraison\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/livraison/colis/supprimer/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"livraison",
+						"colis",
+						"supprimer",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Colis",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"poids\": 5.0,\n    \"dimensions\": \"30x20x10\",\n    \"contenu\": \"Vêtements\",\n    \"statut\": \"En attente\",\n    \"idLivraison\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/livraison/colis/mettre-a-jour/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"livraison",
+						"colis",
+						"mettre-a-jour",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

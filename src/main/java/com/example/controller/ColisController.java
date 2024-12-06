@@ -23,7 +23,7 @@ public class ColisController {
     @Autowired
     private ColisService colisService;
 
-    // Récupérer tous les colis
+    
     @GetMapping("/tous")
     public ColisWrapper getAllColis() {
         List<Colis> colisList = colisService.getAllColis();
@@ -32,25 +32,24 @@ public class ColisController {
         return colisWrapper;
     }
 
-    // Récupérer un colis par son ID
+    
     @GetMapping("/{id}")
     public Colis getColisById(@PathVariable int id) {
         return colisService.getColisById(id);
     }
 
-    // Créer un colis
+    
     @PostMapping("/creer")
     public Colis createColis(@RequestBody Colis colis) {
         return colisService.createColis(colis);
     }
 
-    // Mettre à jour un colis
+    
     @PutMapping("/mettre-a-jour/{id}")
     public Colis updateColis(@PathVariable int id, @RequestBody Colis colis) {
         return colisService.updateColis(id, colis);
     }
 
-    // Supprimer un colis
     @DeleteMapping("/supprimer/{id}")
     public boolean  deleteColis(@PathVariable int id) {
         return colisService.deleteColis(id);

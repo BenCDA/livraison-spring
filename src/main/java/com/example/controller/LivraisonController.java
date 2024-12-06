@@ -26,31 +26,30 @@ public class LivraisonController {
         this.livraisonService = livraisonService;
     }
 
-    // Créer une nouvelle livraison
     @PostMapping
     public Livraison creerLivraison(@RequestBody Livraison livraison) {
         return livraisonService.creerLivraison(livraison);
     }
 
-    // Obtenir toutes les livraisons
+    
     @GetMapping
     public List<Livraison> obtenirToutesLesLivraisons() {
         return livraisonService.obtenirToutesLesLivraisons();
     }
 
-    // Récupérer une livraison par son ID
+    
     @GetMapping("/{id}")
     public Livraison obtenirLivraisonParId(@PathVariable int id) {
         return livraisonService.obtenirLivraisonParId(id);
     }
 
-    // Mettre à jour une livraison
+    
     @PutMapping("/{id}")
     public Livraison mettreAJourLivraison(@PathVariable int id, @RequestBody Livraison livraison) {
         return livraisonService.mettreAJourLivraison(id, livraison);
     }
 
-    // Supprimer une livraison
+    
     @DeleteMapping("/{id}")
     public boolean supprimerLivraison(@PathVariable int id) {
         return livraisonService.supprimerLivraison(id);

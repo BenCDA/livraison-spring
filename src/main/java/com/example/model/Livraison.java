@@ -4,15 +4,14 @@ import java.util.Date;
 
 public class Livraison {
     private int id;
-    private String adresseDepart;  // Correspond à adresse_depart en base
-    private String adresseArrivee; // Correspond à adresse_arrivee en base
+    private String adresseDepart;  
+    private String adresseArrivee; 
     private String detailsColis;
     private String etat; 
     private Date dateCreation;
     private int id_client;
-    private Integer id_livreur;  // Integer pour accepter null
+    private Integer id_livreur;  
 
-    // Getters et setters
 
     public int getId() {
         return id;

@@ -7,7 +7,6 @@ public class Utilisateur {
     private String motDePasse;
     private String role;
 
-    // Getters et setters
     public int getId() {
         return id;
     }

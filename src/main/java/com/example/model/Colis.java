@@ -9,7 +9,6 @@ public class Colis {
     private String statut;        
     private int id_livraison;     
 
-    // Getters et setters
 
     public int getId() {
         return id;

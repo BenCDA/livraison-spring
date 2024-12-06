@@ -15,9 +15,9 @@ import java.util.Map;
 public class LivraisonService {
 
     @Autowired
-    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;  // Injection de NamedParameterJdbcTemplate
+    private NamedParameterJdbcTemplate namedParameterJdbcTemplate; 
 
-    // Méthode pour créer une livraison
+    
     public Livraison creerLivraison(Livraison livraison) {
         String sql = "INSERT INTO Livraisons (adresse_depart, adresse_arrivee, details_colis, etat, dateCreation, id_client, id_livreur) " +
                      "VALUES (:adresseDepart, :adresseArrivee, :detailsColis, :etat, :dateCreation, :idClient, :idLivreur)";
@@ -33,7 +33,7 @@ public class LivraisonService {
 
         namedParameterJdbcTemplate.update(sql, params);
         
-        // Récupérer l'ID généré automatiquement
+        
         String getLastInsertIdSql = "SELECT LAST_INSERT_ID()";
         Integer generatedId = namedParameterJdbcTemplate.queryForObject(getLastInsertIdSql, new HashMap<>(), Integer.class);
         livraison.setId(generatedId);
@@ -41,7 +41,7 @@ public class LivraisonService {
         return livraison;
     }
 
-    // Méthode pour récupérer toutes les livraisons
+    
     public List<Livraison> obtenirToutesLesLivraisons() {
         String sql = "SELECT * FROM Livraisons";
         return namedParameterJdbcTemplate.query(sql, new RowMapper<Livraison>() {
@@ -61,7 +61,7 @@ public class LivraisonService {
         });
     }
 
-    // Méthode pour récupérer une livraison par son ID
+    
     public Livraison obtenirLivraisonParId(int id) { 
         String sql = "SELECT * FROM Livraisons WHERE id = :id";
         
@@ -87,7 +87,7 @@ public class LivraisonService {
         return livraisons.isEmpty() ? null : livraisons.get(0);  // Retourne la livraison si trouvée, sinon null
     }
 
-    // Méthode pour mettre à jour une livraison
+    
     public Livraison mettreAJourLivraison(int id, Livraison livraisonMiseAJour) { 
         String sql = "UPDATE Livraisons SET adresse_depart = :adresseDepart, adresse_arrivee = :adresseArrivee, " +
                      "details_colis = :detailsColis, etat = :etat, dateCreation = :dateCreation, id_client = :idClient, " +
@@ -105,10 +105,10 @@ public class LivraisonService {
 
         namedParameterJdbcTemplate.update(sql, params);
         
-        return obtenirLivraisonParId(id);  // Retourner la livraison mise à jour
+        return obtenirLivraisonParId(id);  
     }
 
-    // Méthode pour supprimer une livraison
+    
     public boolean supprimerLivraison(int id) { 
         String sql = "DELETE FROM Livraisons WHERE id = :id";
         
@@ -116,6 +116,6 @@ public class LivraisonService {
         params.put("id", id);
 
         int rowsAffected = namedParameterJdbcTemplate.update(sql, params);
-        return rowsAffected > 0;  // Retourne true si la suppression a réussi
+        return rowsAffected > 0;  
     }
 }
